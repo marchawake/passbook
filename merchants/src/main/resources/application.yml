@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: march-passbook-merchants
+  datasource:
+    url: jdbc:mysql://47.111.3.30:3306/passbook?useSSL=false&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: passbook
+    password: 311324@
+  kafka:
+    bootstrap-servers: 47.111.3.30:9092
+    consumer:
+      group-id: passbook
+    listener:
+      concurrency: 4
+  logging:
+    file:
+      name: merchants.log
+    level: debug
+server:
+  port: 9527
+

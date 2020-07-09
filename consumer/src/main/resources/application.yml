@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: march-passbook-consumer
+  datasource:
+    url: jdbc:mysql://47.111.3.30:3306/passbook?allowPublicKeyRetrieval=true&useSSL=false&autoreConnect&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: march
+    password: March80376@
+
+  druid:
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+
+  kafka:
+    bootstrap-servers: 47.111.3.30:9092
+    consumer:
+      group-id: passbook
+    listener:
+      concurrency: 4
+
+  data:
+    hbase:
+      quorum: 47.111.3.30:2181
+      rootDir: hdfs://master:9000/hbase
+      nodeParent: /hbase
+
+
+  redis:
+    host: 47.111.3.30
+    port: 6379
+    password: 311324
+server:
+  port: 9528
+
+logging:
+  level: debug
